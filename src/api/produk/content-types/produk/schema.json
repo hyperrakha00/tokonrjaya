@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "produks",
+  "info": {
+    "singularName": "produk",
+    "pluralName": "produks",
+    "displayName": "Produk",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "deskripsi": {
+      "type": "text",
+      "default": "no deskripsi"
+    },
+    "kategori": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::kategori.kategori"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "produk"
+    },
+    "quantity": {
+      "type": "integer",
+      "default": 1
+    }
+  }
+}
